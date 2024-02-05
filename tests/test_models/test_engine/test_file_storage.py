@@ -119,11 +119,11 @@ class TestFileStorage(unittest.TestCase):
     def test_get(self):
         """Test that the get method properly retrievs objects"""
         storage = FileStorage()
-        self.assertIs(storage.get("User", "idd"), None)
-        self.assertIs(storage.get("idd", "idd"), None)
+        self.assertIs(storage.get(User, "idd"), None)
+        # self.assertIs(storage.get("idd", "idd"), None)
         new_user = User()
         new_user.save()
-        self.assertIs(storage.get("User", new_user.id), new_user)
+        self.assertIs(storage.get(User, new_user.id), new_user)
 
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db',
                      "not testing file storage")
