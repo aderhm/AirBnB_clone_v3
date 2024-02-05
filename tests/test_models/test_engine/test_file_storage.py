@@ -120,7 +120,6 @@ class TestFileStorage(unittest.TestCase):
         """Test that the get method properly retrievs objects"""
         storage = FileStorage()
         self.assertIs(storage.get(User, "idd"), None)
-        # self.assertIs(storage.get("idd", "idd"), None)
         new_user = User()
         new_user.save()
         self.assertIs(storage.get(User, new_user.id), new_user)
